@@ -1,20 +1,261 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>Shitty personality quiz</title>
+ </head>
 
-<body>
-<h1>Davey's projects</h1>
+ <style>
 
-<h2>
-What I'm up to! So new to this, oh god. 
-</h2>
+body {
+    font-family: helvetica;
+}
 
-<div class="container">
-  <img src="https://images.pexels.com/photos/841228/pexels-photo-841228.jpeg"" alt="keyboard" class="image">
-   <div class="overlay">
-    <div class="text">This is a public domain image of a keyboard, which I will use to type code.</div>
-        </div>
-      </div>
+#subtitle {
+    display: block;
+}
 
+#quiz {
+    display: none;
+    background-color: lightgrey;
+}
 
-</body>
+#question1 {
+    display: none;
+}
+
+#question2 {
+    display: none;
+}
+
+#question3 {
+    display: none;
+}
+
+#question4 {
+    display: none;
+}
+
+#question5 {
+    display: none;
+}
+
+#answers {
+    display: none;
+}
+
+#generated {
+    display: none;
+}
+
+ </style>
+ 
+ <body>
+
+    <h1>Shitty personality quiz</h1>
+    <h2 id="subtitle">You're not shitty, but this quiz absolutely is.</h2>
+
+    <button type="button" id="startbutton" onclick="question1()">Get started</button>
+
+    <div id="question1">
+    <h2 id>Question 1</h2>
+    <p>What is your favorite animal?</p>
+          <div id="answers 1">
+            <button id="dog" onclick="answer1(dog)">Dog</button>
+            <button id="cat" onclick="answer1(cat)">Cat</button>
+            <button id="opossum" onclick="answer1(opossum)">Opossum</button>
+            <button id="another" onclick="answer1(another)">Another animal</button>
+          </div>
+    </div>
+    
+    <div id="question2">
+    <h2>Question 2</h2>
+    <p>How about your favorite color?</p>
+          <div id="answers 2">
+            <button id="red" onclick="answer2(red)">Red</button>
+            <button id="blue" onclick="answer2(blue)">Blue</button>
+            <button id="green" onclick="answer2(green)">Green</button>
+            <button id="different" onclick="answer2(different)">A different color</button>
+          </div>
+    </div>
+
+    <div id="question3">
+    <h2 >Question 3</h2>
+    <p>What would you say your usual mood is?</p>
+         <div id="answers 3">
+            <button id="happy" onclick="answer3(happy)">Happy</button>
+            <button id="sad" onclick="answer3(sad)">Sad</button>
+            <button id="angry" onclick="answer3(angry)">Angry</button>
+            <button id="depends" onclick="answer3(depends)">It really depends</button>
+          </div>
+    </div>
+
+    <div id="question4">
+    <h2 >Question 4</h2>
+    <p>What's your preferred mode of travel?</p>
+         <div id="answers 4">
+            <button id="car" onclick="answer4(car)">Car</button>
+            <button id="bike" onclick="answer4(bike)">Bike</button>
+            <button id="train" onclick="answer4(train)">Train</button>
+            <button id="bus" onclick="answer4(bus)">Bus</button>
+          </div>
+    </div>
+    
+    <div id="question5">
+    <h2 >Question 5</h2>
+    <p>Are you pretty tidy or nah?</p>
+         <div id="answers 5">
+            <button id="tidy" onclick="answer5(tidy)">Yeah</button>
+            <button id="nah" onclick="answer5(nah)">Nah</button>
+            <button id="maybe" onclick="answer5(maybe)">I would say somewhere in between</button>
+          </div>
+    </div>
+
+    <br></br>
+    <br></br>
+    <br></br>
+
+    <h2 id="answers">
+        Alright, this shitty quiz was able to determine the following:
+    </h2>
+
+    <br></br>
+
+    <h2 id="generated">    </h2>
+ 
+    <script>
+    
+    var answers = ["0", "1", "2", "3", "4"];
+    var button = document.getElementById("startbutton");
+    var subtitle = document.getElementById("subtitle");
+    var q1 = document.getElementById("question1");
+    var q2 = document.getElementById("question2");
+    var q3 = document.getElementById("question3");
+    var q4 = document.getElementById("question4");
+    var q5 = document.getElementById("question5");
+    var answers = document.getElementById("answers");
+    var generated = document.getElementById("generated");
+
+    //Button to start the quiz and go to question 1
+    function question1() {
+            button.style.display = "none";
+            subtitle.style.display = "none";
+            q1.style.display = "block";
+        };
+    
+    function answer1(x) {
+        q1.style.display = "none";
+        q2.style.display = "block";
+        if (x == dog) {
+            answers[0] = "dogs";
+            console.log(answers);
+        } else if (x == cat) {
+            answers[0] = "cats";
+            console.log(answers);
+        } else if (x == opossum) {
+            answers[0] = "opossums";
+            console.log(answers);
+        } else if (x == another) {
+            answers[0] = "a certain other animal";
+            console.log(answers);
+        };
+    };
+
+     function question2() {
+            q1.style.display = "none"
+            q2.style.display = "block";
+        };
+    
+    function answer2(x) {
+        q2.style.display = "none";
+        q3.style.display = "block";
+        if (x == red) {
+            answers[1] = "the color red";
+            console.log(answers);
+        } else if (x == blue) {
+            answers[1] = " the color blue";
+            console.log(answers);
+        } else if (x == green) {
+            answers[1] = "the color green";
+            console.log(answers);
+        } else if (x == different) {
+            answers[1] = "a different color from the ones we gave you";
+            console.log(answers);
+        };
+    };
+
+    function question3() {
+            q2.style.display = "none"
+            q3.style.display = "block";
+        };
+    
+    function answer3(x) {
+        q3.style.display = "none";
+        q4.style.display = "block";
+        if (x == happy) {
+            answers[2] = "is happy";
+            console.log(answers);
+        } else if (x == sad) {
+            answers[2] = "is sad";
+            console.log(answers);
+        } else if (x == angry) {
+            answers[2] = "is angry";
+            console.log(answers);
+        } else if (x == depends) {
+            answers[2] = "really depends";
+            console.log(answers);
+        };
+    };
+
+    function question4() {
+            q3.style.display = "none"
+            q4.style.display = "block";
+        };
+    
+    function answer4(x) {
+        q4.style.display = "none";
+        q5.style.display = "block";
+        if (x == car) {
+            answers[3] = "car";
+            console.log(answers);
+        } else if (x == bike) {
+            answers[3] = "bike";
+            console.log(answers);
+        } else if (x == train) {
+            answers[3] = "train";
+            console.log(answers);
+        } else if (x == bus) {
+            answers[3] = "bus";
+            console.log(answers);
+        };
+    };
+
+    function question5() {
+            q4.style.display = "none"
+            q5.style.display = "block";
+        };
+    
+    function answer5(x) {
+        q5.style.display = "none";
+        if (x == tidy) {
+            answers[4] = "'tidy'";
+            console.log(answers);
+        } else if (x == nah) {
+            answers[4] = "'not very tidy'";
+            console.log(answers);
+        } else if (x == maybe) {
+            answers[4] = "'kind of tidy but it depends, ya know'";
+            console.log(answers);
+        };
+    
+        answers.style.display = "block";
+        generated.style.display = "block";
+        generated.innerHTML = "You are a person who likes " + answers[0] + " and " + answers[1] + ". Your usual mood " + answers[2] + " and when it comes to travel, you'd rather be on a " + answers[3] + " than one of the other options we gave you. When asked if you were tidy, you answered " + answers[4] + ", which really says alot about you. I would have to imagine. <br></br> Alright, well, thanks for doing this."
+    };   
+    
+        
+    
+    </script>
+  
+ </body>
+</html>
